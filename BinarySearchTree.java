@@ -35,20 +35,16 @@ public class BinarySearchTree<String> {
 		else
 			this.root.insert(insertValue);
 	}
-
+	// Method: retrieve the left node in the tree and return it to findHashtag method
 	public BinarySearchTree<String> getLeftTree() {
-
 		if (root != null && root.leftNode != null) {
-
 			return (new BinarySearchTree<String>(root.leftNode));
 		} else
 			return null;
 	}
-
+	// Method: retrieve the right node in the tree and return it to findHashtag method
 	public BinarySearchTree<String> getRightTree() {
-
 		if (root != null && root.rightNode != null) {
-
 			return (new BinarySearchTree<String>(root.rightNode));
 		} else
 			return null;
@@ -58,7 +54,7 @@ public class BinarySearchTree<String> {
 	// exists
 
 	@SuppressWarnings("unchecked")
-	public String findTweet(BinarySearchTree<String> tree, java.lang.String key) {
+	public String findHashtag(BinarySearchTree<String> tree, java.lang.String key) {
 		String foundTweet;
 		String notFound = (String) (key + " was not found");
 
@@ -69,21 +65,9 @@ public class BinarySearchTree<String> {
 			return foundTweet;
 		} else if (((java.lang.String) key)
 				.compareTo((java.lang.String) tree.root.data) > 0)
-			return (String) findTweet(tree.getRightTree(), key);
+			return (String) findHashtag(tree.getRightTree(), key);
 		else
-			return (findTweet(tree.getLeftTree(), key));
+			return (findHashtag(tree.getLeftTree(), key));
 
 	}
-
-	@SuppressWarnings("unchecked")
-	public String printInorderTraversal(BinarySearchTree<String> tree) {
-		if (tree == null)
-			return (String) "";
-
-		else
-			return (String) (printInorderTraversal(tree.getLeftTree())
-					+ tree.root.toString() + " " + printInorderTraversal(tree
-						.getRightTree()));
-	}
-
 }

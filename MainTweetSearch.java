@@ -33,7 +33,7 @@ public class MainTweetSearch {
 		String key = tweetInput.next();
 
 		
-		System.out.println(tweetsTree.findTweet(tweetsTree, key)+" was found.");
+		System.out.println(tweetsTree.findHashtag(tweetsTree, key)+" was found.");
 		
 
 	}// end of main method
