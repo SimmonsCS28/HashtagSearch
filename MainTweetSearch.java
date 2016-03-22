@@ -27,13 +27,13 @@ public class MainTweetSearch {
 		}// end of while loop
 
 		// Ask for a tweet to search for
-		System.out.println("Please enter a tweet to search for.");
+		System.out.println("Please enter a hashtag to search for.");
 		@SuppressWarnings("resource")
 		Scanner tweetInput = new Scanner(System.in);
 		String key = tweetInput.next();
 
 		
-		System.out.println(tweetsTree.findTweet(tweetsTree, key));
+		System.out.println(tweetsTree.findTweet(tweetsTree, key)+" was found.");
 		
 
 	}// end of main method

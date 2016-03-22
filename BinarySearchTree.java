@@ -60,21 +60,20 @@ public class BinarySearchTree<String> {
 	@SuppressWarnings("unchecked")
 	public String findTweet(BinarySearchTree<String> tree, java.lang.String key) {
 		String foundTweet;
-		String notFound = (String) "Tweet not found";
-		
+		String notFound = (String) (key + " was not found");
+
 		if (tree == null)
-			return (String) "";
+			return (String) notFound;
 		else if (tree.root.data.equals(key)) {
 			foundTweet = (String) key;
-			return foundTweet;}
-		else if (!tree.root.data.equals(key))
-			return (String) (findTweet(tree.getLeftTree(),key)
-					+ tree.root.toString() + " " + findTweet(tree
-						.getRightTree(),key));
-		
-		else 
-			return notFound;
-		}
+			return foundTweet;
+		} else if (((java.lang.String) key)
+				.compareTo((java.lang.String) tree.root.data) > 0)
+			return (String) findTweet(tree.getRightTree(), key);
+		else
+			return (findTweet(tree.getLeftTree(), key));
+
+	}
 
 	@SuppressWarnings("unchecked")
 	public String printInorderTraversal(BinarySearchTree<String> tree) {
