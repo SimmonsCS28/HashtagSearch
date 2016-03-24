@@ -29,7 +29,6 @@ public class BinarySearchTree<String> {
 
 	// Method: insertNode (insert a value into a BST)
 	public void insertNode(String insertValue) {
-
 		if (this.root == null)
 			this.root = new Node<String>(insertValue);
 		else
