@@ -55,12 +55,12 @@ public class BinarySearchTree<String> {
 	@SuppressWarnings("unchecked")
 	public String findHashtag(BinarySearchTree<String> tree, java.lang.String key) {
 		String foundTweet;
-		String notFound = (String) (key + " was not found");
+		String notFound = (String) (key + " was not found in the hashtag list.");
 
 		if (tree == null)
 			return (String) notFound;
 		else if (tree.root.data.equals(key)) {
-			foundTweet = (String) key;
+			foundTweet = (String) (key + " was found in the hashtag list.");
 			return foundTweet;
 		} else if (((java.lang.String) key)
 				.compareTo((java.lang.String) tree.root.data) > 0)

@@ -7,7 +7,7 @@ public class MainTweetSearch {
 
 	public static void main(String[] args) {
 
-		// Create the Hashtag Tree
+		// Create a tree from master hashtag list
 		BinarySearchTree<String> hashTagTree = new BinarySearchTree<String>();
 
 		FileIn fileInput = new FileIn();
@@ -35,12 +35,14 @@ public class MainTweetSearch {
 				.println("Please enter a tweet and I will see if your hashtags are in my table.");
 		Scanner tweetInput = new Scanner(System.in);
 
-		// Create a new list to store string words in
+		// Create a new list to store words from tweet in
 		LinkedList<String> tweetHashTags = new LinkedList<String>();
 		String tweet = tweetInput.nextLine();
 		tweetInput.close();
+		
 		// Split words from tweet into an array and then search the array for
 		// hashtags to add to the hashtag list
+		
 		String[] tweetWords = tweet.split(delimiter);
 		for (int i = 0; i < tweetWords.length; i++) {
 			if (tweetWords[i].contains("#"))
@@ -48,10 +50,11 @@ public class MainTweetSearch {
 		}// end of for loop
 
 		// While the hashtag list still has hashtags, search the tree and print
-		// out result of found or not
+		// out whether they were found in the master list or not.
+		
 		while (!tweetHashTags.isEmpty()) {
 			System.out.println(hashTagTree.findHashtag(hashTagTree,
-					tweetHashTags.getLast()) + " was found.");
+					tweetHashTags.getLast()));
 			tweetHashTags.removeLast();
 		}// end of while loop
 
