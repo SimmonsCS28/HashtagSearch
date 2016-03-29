@@ -34,14 +34,18 @@ public class BinarySearchTree<String> {
 		else
 			this.root.insert(insertValue);
 	}
-	// Method: retrieve the left node in the tree and return it to findHashtag method
+
+	// Method: retrieve the left node in the tree and return it to findHashtag
+	// method
 	public BinarySearchTree<String> getLeftTree() {
 		if (root != null && root.leftNode != null) {
 			return (new BinarySearchTree<String>(root.leftNode));
 		} else
 			return null;
 	}
-	// Method: retrieve the right node in the tree and return it to findHashtag method
+
+	// Method: retrieve the right node in the tree and return it to findHashtag
+	// method
 	public BinarySearchTree<String> getRightTree() {
 		if (root != null && root.rightNode != null) {
 			return (new BinarySearchTree<String>(root.rightNode));
@@ -53,17 +57,17 @@ public class BinarySearchTree<String> {
 	// exists
 
 	@SuppressWarnings("unchecked")
-	public String findHashtag(BinarySearchTree<String> tree, java.lang.String key) {
+	public String findHashtag(BinarySearchTree<String> tree,
+			java.lang.String key) {
 		String foundTweet;
-		String notFound = (String) (key + " was not found in the hashtag list.");
+		String notFound = (String) ("\n" + key + " was not found in the hashtag list.");
 
 		if (tree == null)
 			return (String) notFound;
-		else if (tree.root.data.equals(key)) {
-			foundTweet = (String) (key + " was found in the hashtag list.");
+		else if (((java.lang.String) tree.root.data).compareToIgnoreCase(key) == 0) {
+			foundTweet = (String) ("\n" + key + " was found in the hashtag list.");
 			return foundTweet;
-		} else if (((java.lang.String) key)
-				.compareTo((java.lang.String) tree.root.data) > 0)
+		} else if ((key).compareToIgnoreCase((java.lang.String) tree.root.data) > 0)
 			return (String) findHashtag(tree.getRightTree(), key);
 		else
 			return (findHashtag(tree.getLeftTree(), key));
